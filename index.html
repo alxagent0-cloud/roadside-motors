@@ -3,220 +3,244 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RoadSide Motors — Automotive Management, Transport & Services</title>
+  <title>RoadSide Motors — Automotive Management, Transport &amp; Services</title>
+  <meta name="description" content="Automotive management, transport and operational support. Vehicle transport, trailer rental, fleet support and mobile services in Karlsruhe and Bretten, Germany." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,600;0,800;1,700;1,900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <script type="module" crossorigin src="./assets/index.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index.css">
 </head>
 <body>
-  <canvas id="webgl"></canvas>
+  <a class="skip" href="#contact">Skip to contact</a>
 
-  <header class="nav">
-    <div class="nav-inner">
-      <a class="logo" href="#home">RoadSide<span>Motors</span></a>
-      <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#transport">Transport</a>
-        <a href="#fleet">Fleet Support</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a class="nav-cta" href="tel:+491773185305">+49 177 318 5305</a>
-    </div>
+  <header class="topbar">
+    <a class="topbar__mark" href="#top" aria-label="RoadSide Motors — top">
+      <img src="./assets/logo-dark.webp" alt="RoadSide Motors" />
+    </a>
+    <a class="topbar__cta" href="tel:+491773185305">+49 177 318 5305</a>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <video class="hero-video" id="hero-video" src="./assets/hero.mp4" muted playsinline preload="auto" loop></video>
-      <div class="hero-overlay"></div>
-      <div class="hero-glow"></div>
-      <div class="hero-content">
-        <p class="eyebrow">Automotive Management • Transport & Services</p>
-        <h1>RoadSide<span>Motors</span></h1>
-        <p class="tagline">
-          A modern automotive management, transport and operational support company.
-          Karlsruhe &amp; Bretten, Germany.
-        </p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#contact">Get in touch</a>
-          <a class="btn ghost" href="#services">Our services</a>
-        </div>
-      </div>
-      <div class="scroll-hint">Scroll to explore</div>
-    </section>
+  <main id="top">
 
-    <!-- ABOUT -->
-    <section class="section about" id="about">
-      <div class="section-inner">
-        <p class="eyebrow">Who we are</p>
-        <h2>More than roadside assistance.</h2>
-        <p class="lead">
-          RoadSide Motors is an automotive support and operations company focused on helping
-          customers manage, move, maintain and organise vehicles efficiently. We combine vehicle
-          logistics, fleet support, trailer rental and mobile automotive services into one
-          professional, scalable brand.
-        </p>
-        <div class="stat-grid">
-          <div class="stat"><strong>Transport</strong><span>Local &amp; Europe‑wide</span></div>
-          <div class="stat"><strong>Fleet</strong><span>Rental &amp; leasing support</span></div>
-          <div class="stat"><strong>Management</strong><span>TÜV, registration, logistics</span></div>
+    <!-- 00 — THE WHEEL -->
+    <section class="scene" id="scene-wheel">
+      <div class="scene__sticky">
+        <div class="scene__media">
+          <img class="hero-wheel" src="./assets/wheel.webp" alt="" />
         </div>
-      </div>
-    </section>
-
-    <!-- SERVICES OVERVIEW -->
-    <section class="section services" id="services">
-      <div class="section-inner">
-        <p class="eyebrow">What we do</p>
-        <h2>Main services</h2>
-        <div class="grid">
-          <article class="card">
-            <h3>Vehicle Transport</h3>
-            <p>Trailer transport, vehicle transfer by driving, local and Europe‑wide logistics, pickup &amp; delivery, non‑running vehicle transport.</p>
-          </article>
-          <article class="card">
-            <h3>Trailer Rental</h3>
-            <p>Professional car transport trailer rental with short‑term, long‑term and business subscription plans, plus diagnostic scanners, jump starters and tool equipment.</p>
-          </article>
-          <article class="card">
-            <h3>Automotive Management</h3>
-            <p>TÜV organisation, inspection scheduling, registration &amp; deregistration, plate coordination, document handling, fleet and workshop coordination.</p>
-          </article>
-          <article class="card">
-            <h3>Fleet &amp; Rental Support</h3>
-            <p>Vehicle movement between locations, transport coordination, monitoring, damage prevention, battery health and winter readiness.</p>
-          </article>
-          <article class="card">
-            <h3>Private Vehicle Management</h3>
-            <p>Support for collectors, sports cars, motorhomes and seasonal vehicles: checks, start‑ups, tyre pressure, movement and registration support.</p>
-          </article>
-          <article class="card">
-            <h3>Mobile Services</h3>
-            <p>Jump‑start assistance, battery replacement, diagnostics, quick inspections, lighting checks and windshield replacement coordination.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- TRANSPORT -->
-    <section class="section split-section" id="transport">
-      <div class="split">
-        <div class="split-text">
-          <p class="eyebrow">Vehicle transport</p>
-          <h2>Moving vehicles, safely and on time.</h2>
-          <p>
-            Whether it is a single sports car, a fleet of company vehicles or a non‑running
-            project, we handle pickup, transport and delivery with professional equipment and
-            careful coordination.
+        <div class="scene__scrim scene__scrim--hero"></div>
+        <div class="scene__copy scene__copy--hero" data-reveal>
+          <img class="wordmark" src="./assets/logo-dark.webp" alt="RoadSide Motors" />
+          <p class="lede">
+            Automotive management, transport and operational support.
+            Karlsruhe &amp; Bretten, Germany.
           </p>
-          <ul class="checklist">
-            <li>Vehicle transport with trailer</li>
-            <li>Vehicle transfer by driving</li>
-            <li>Local and Europe‑wide transport</li>
-            <li>Pickup &amp; delivery service</li>
-            <li>Rental company and fleet relocation</li>
-            <li>Non‑running vehicle transport</li>
+          <p class="scroll-cue">Scroll</p>
+        </div>
+        <div class="veil" aria-hidden="true">
+          <img src="./assets/wheel.webp" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 — MOVE -->
+    <section class="scene" data-src="/src/assets/scenes/transport.mp4" data-poster="/src/assets/scenes/transport.jpg">
+      <div class="scene__sticky">
+        <video class="scene__video" muted playsinline preload="metadata" poster="./assets/transport.jpg"></video>
+        <div class="scene__scrim"></div>
+        <div class="scene__copy" data-reveal>
+          <h2>We move vehicles.</h2>
+          <p class="lede">
+            A single car, a whole fleet, or something that no longer runs. Locally, and across
+            Europe.
+          </p>
+          <dl class="index">
+            <div class="index__row">
+              <dt>Vehicle transport</dt>
+              <dd>Trailer transport, transfer by driving, pick-up and delivery, non-running vehicles</dd>
+            </div>
+            <div class="index__row">
+              <dt>Trailer rental</dt>
+              <dd>Short-term, long-term and business subscriptions, with scanners, jump starters and tool equipment</dd>
+            </div>
+            <div class="index__row">
+              <dt>Automotive management</dt>
+              <dd>TÜV organisation, inspections, registration and deregistration, plate and document handling</dd>
+            </div>
+            <div class="index__row">
+              <dt>Fleet &amp; rental support</dt>
+              <dd>Movement between locations, standing-damage prevention, battery health, winter readiness</dd>
+            </div>
+            <div class="index__row">
+              <dt>Private vehicle management</dt>
+              <dd>Collectors, sports cars, motorhomes, seasonal vehicles</dd>
+            </div>
+            <div class="index__row">
+              <dt>Mobile services</dt>
+              <dd>Jump-starts, battery replacement, diagnostics, quick inspections</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="veil" aria-hidden="true">
+          <img src="./assets/wheel.webp" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 — TRAILER -->
+    <section class="scene" data-src="/src/assets/scenes/strap.mp4" data-poster="/src/assets/scenes/strap.jpg">
+      <div class="scene__sticky">
+        <video class="scene__video" muted playsinline preload="metadata" poster="./assets/strap.jpg"></video>
+        <div class="scene__scrim"></div>
+        <div class="scene__copy scene__copy--end" data-reveal>
+          <h2>Trailers, and everything that goes with them.</h2>
+          <p class="lede">
+            Car transport trailers by the day, by the month, or on a business subscription —
+            with the equipment that makes the job quick.
+          </p>
+          <ul class="facts">
+            <li>Diagnostic scanners</li>
+            <li>Battery jump starters</li>
+            <li>Compressors</li>
+            <li>Ratchet straps and wheel straps</li>
+            <li>Work lights and tool equipment</li>
           </ul>
         </div>
-        <div class="split-media">
-          <img src="./assets/hero.png" alt="Vehicle transport trailer carrying a sports car at dusk" />
+        <div class="veil" aria-hidden="true">
+          <img src="./assets/wheel.webp" alt="" />
         </div>
       </div>
     </section>
 
-    <!-- FLEET -->
-    <section class="section split-section alt" id="fleet">
-      <div class="split reverse">
-        <div class="split-media">
-          <video class="media-video" src="./assets/fleet.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Fleet of modern cars parked in an organised lot"></video>
-        </div>
-        <div class="split-text">
-          <p class="eyebrow">Fleet &amp; rental support</p>
-          <h2>Keep every vehicle ready.</h2>
-          <p>
-            We support rental companies, dealerships, leasing companies and fleet operators with
-            the operational work that keeps vehicles moving and protected.
+    <!-- 03 — FLEET -->
+    <section class="scene" data-src="/src/assets/scenes/fleet-garage.mp4" data-poster="/src/assets/scenes/fleet-garage.jpg">
+      <div class="scene__sticky">
+        <video class="scene__video" muted playsinline preload="metadata" poster="./assets/fleet-garage.jpg"></video>
+        <div class="scene__scrim"></div>
+        <div class="scene__copy" data-reveal>
+          <h2>Vehicles that sit still cost money.</h2>
+          <p class="lede">
+            Rental companies, dealerships, leasing companies and fleet operators. We keep the
+            fleet moving, and keep the ones that aren't moving from decaying.
           </p>
-          <ul class="checklist">
-            <li>Vehicle movement between locations</li>
+          <ul class="facts">
+            <li>Movement between locations</li>
             <li>Transport coordination</li>
-            <li>Vehicle monitoring &amp; standing damage prevention</li>
+            <li>Standing-damage prevention</li>
             <li>Battery health monitoring</li>
             <li>Winter operational support</li>
-            <li>Maintaining vehicle readiness</li>
           </ul>
+        </div>
+        <div class="veil" aria-hidden="true">
+          <img src="./assets/wheel.webp" alt="" />
         </div>
       </div>
     </section>
 
-    <!-- MOBILE -->
-    <section class="section split-section" id="mobile">
-      <div class="split">
-        <div class="split-text">
-          <p class="eyebrow">Mobile automotive services</p>
-          <h2>Help where you are.</h2>
-          <p>
-            Fast, professional mobile support for drivers and businesses — from jump‑starts to
-            diagnostics and quick inspections.
+    <!-- 04 — WORKSHOP -->
+    <section class="scene" data-src="/src/assets/scenes/workshop.mp4" data-poster="/src/assets/scenes/workshop.jpg">
+      <div class="scene__sticky">
+        <video class="scene__video" muted playsinline preload="metadata" poster="./assets/workshop.jpg"></video>
+        <div class="scene__scrim"></div>
+        <div class="scene__copy scene__copy--end" data-reveal>
+          <h2>The paperwork and the workshop.</h2>
+          <p class="lede">
+            The administrative side of running vehicles, handled end to end — so nobody on your
+            team has to chase it.
           </p>
-          <ul class="checklist">
-            <li>Jump‑start assistance</li>
+          <ul class="facts">
+            <li>TÜV organisation and inspection scheduling</li>
+            <li>Registration and deregistration</li>
+            <li>Plate coordination</li>
+            <li>Document handling</li>
+            <li>Workshop and maintenance coordination</li>
+            <li>Logistics planning</li>
+          </ul>
+        </div>
+        <div class="veil" aria-hidden="true">
+          <img src="./assets/wheel.webp" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 — ROADSIDE -->
+    <section class="scene" data-src="/src/assets/scenes/roadside.mp4" data-poster="/src/assets/scenes/roadside.jpg">
+      <div class="scene__sticky">
+        <video class="scene__video" muted playsinline preload="metadata" poster="./assets/roadside.jpg"></video>
+        <div class="scene__scrim"></div>
+        <div class="scene__copy" data-reveal>
+          <h2>Help where the car stopped.</h2>
+          <p class="lede">
+            Mobile support that comes to the vehicle, not the other way round.
+          </p>
+          <ul class="facts">
+            <li>Jump-start assistance</li>
             <li>Battery replacement</li>
             <li>Diagnostic scans</li>
-            <li>Basic vehicle checks &amp; quick inspections</li>
-            <li>Lighting and battery/system checks</li>
+            <li>Quick inspections</li>
+            <li>Lighting and system checks</li>
             <li>Windshield replacement coordination</li>
           </ul>
         </div>
-        <div class="split-media">
-          <img src="./assets/mobile.png" alt="Mobile technician jump-starting a car on the roadside" />
+        <div class="veil" aria-hidden="true">
+          <img src="./assets/wheel.webp" alt="" />
         </div>
       </div>
     </section>
 
-    <!-- WHY -->
-    <section class="section why" id="why">
-      <div class="section-inner">
-        <p class="eyebrow">Why RoadSide Motors</p>
-        <h2>A reliable automotive partner.</h2>
-        <div class="why-grid">
-          <div class="why-item"><h4>Professional</h4><p>Organised processes and clear communication at every step.</p></div>
-          <div class="why-item"><h4>Reliable</h4><p>We show up, we deliver, and we keep you informed.</p></div>
-          <div class="why-item"><h4>Modern</h4><p>Digital coordination, transparent service and scalable operations.</p></div>
-          <div class="why-item"><h4>Scalable</h4><p>From a single vehicle to a whole fleet — we grow with your needs.</p></div>
+    <!-- 06 — PRIVATE -->
+    <section class="scene" data-src="/src/assets/scenes/headlight.mp4" data-poster="/src/assets/scenes/headlight.jpg">
+      <div class="scene__sticky">
+        <video class="scene__video" muted playsinline preload="metadata" poster="./assets/headlight.jpg"></video>
+        <div class="scene__scrim"></div>
+        <div class="scene__copy scene__copy--end" data-reveal>
+          <h2>For cars that aren't driven every day.</h2>
+          <p class="lede">
+            Collectors, sports cars, motorhomes and seasonal vehicles need attention precisely
+            because nothing is happening to them.
+          </p>
+          <ul class="facts">
+            <li>Regular vehicle checks</li>
+            <li>Start-up and battery checks</li>
+            <li>Tyre pressure monitoring</li>
+            <li>Vehicle movement</li>
+            <li>Inspection reminders</li>
+            <li>Registration support</li>
+          </ul>
+        </div>
+        <div class="veil" aria-hidden="true">
+          <img src="./assets/wheel.webp" alt="" />
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="section contact" id="contact">
-      <div class="section-inner">
-        <p class="eyebrow">Get in touch</p>
-        <h2>Let's move your vehicles.</h2>
-        <p class="lead">Contact Wissam Rachkidi for transport, fleet support or automotive management.</p>
-        <div class="contact-grid">
-          <a class="contact-card" href="tel:+491773185305">
-            <span>Phone</span>
-            <strong>+49 177 318 5305</strong>
-          </a>
-          <a class="contact-card" href="mailto:management@roadside-motors.de">
-            <span>Email</span>
-            <strong>management@roadside-motors.de</strong>
-          </a>
-          <div class="contact-card">
-            <span>Location</span>
-            <strong>Karlsruhe &amp; Bretten, Germany</strong>
+    <!-- 07 — CONTACT -->
+    <section class="scene scene--end" id="contact">
+      <div class="scene__sticky">
+        <div class="carbon" aria-hidden="true"></div>
+        <div class="scene__scrim scene__scrim--hero"></div>
+        <div class="scene__copy scene__copy--hero" data-reveal>
+          <h2>Tell us what has to move.</h2>
+          <p class="lede contact-name">Wissam Rachkidi — Owner</p>
+          <div class="contact">
+            <a href="tel:+491773185305"><span>Phone</span>+49 177 318 5305</a>
+            <a href="mailto:management@roadside-motors.de"><span>Email</span>management@roadside-motors.de</a>
+            <div><span>Location</span>Karlsruhe &amp; Bretten, Germany</div>
+            <a href="https://roadside-motors.de" target="_blank" rel="noopener"><span>Web</span>roadside-motors.de</a>
           </div>
-          <a class="contact-card" href="https://roadside-motors.de" target="_blank" rel="noopener">
-            <span>Website</span>
-            <strong>roadside-motors.de</strong>
-          </a>
+          <img class="plate" src="./assets/logo-square.webp" alt="RoadSide Motors" />
+        </div>
+        <div class="veil" aria-hidden="true">
+          <img src="./assets/wheel.webp" alt="" />
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> RoadSide Motors. Automotive Management • Transport &amp; Services.</p>
+    <p>© <span id="year"></span> RoadSide Motors · Automotive Management · Transport &amp; Services</p>
   </footer>
 
 </body>
