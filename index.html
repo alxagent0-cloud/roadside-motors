@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RoadSide Motors — Automotive Management &amp; Transport</title>
+<meta name="description" content="Vehicle transport across Germany and Europe — drivable or not, accident, engine or gearbox damage, no TÜV. Trailer rental, vehicle purchase, parts and mobile camper repair. One partner for everything.">
+<meta property="og:title" content="RoadSide Motors — Automotive Management &amp; Transport">
+<meta property="og:description" content="Professional vehicle transport. Nationwide. One partner for everything.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,400;0,600;0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#050505; --matte:#0A0A0A; --panel:#101012; --panel2:#16161A;
+  --chrome:#C0C0C0; --bright:#E8E8E8; --steel:#A0A0A0; --gray:#333333;
+  --red:#E31937; --red-bright:#FF2D55; --line:rgba(192,192,192,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--deep); color:var(--bright);
+  font-family:"Noto Sans Display","Segoe UI",Helvetica,Arial,sans-serif;
+  font-weight:600; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+body.lock{overflow:hidden}
+h1,h2,h3{font-family:"Noto Sans Display",sans-serif;font-weight:900;font-style:italic;letter-spacing:-.5px;line-height:.98;text-transform:none}
+h1{font-size:clamp(40px,7.4vw,104px)}
+h2{font-size:clamp(30px,4.6vw,62px)}
+h3{font-size:clamp(17px,1.5vw,21px);font-style:normal;font-weight:700}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 30px}
+.eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.eyebrow:before{content:"";width:22px;height:1px;background:var(--red)}
+.lead{font-weight:400;color:var(--steel);font-size:clamp(14px,1.15vw,17px);line-height:1.65}
+.hl{color:var(--red)}
+
+/* ---------- chrome text ---------- */
+.chrome{
+  background:linear-gradient(180deg,#fff 0%,#C0C0C0 38%,#6E6E6E 52%,#E8E8E8 66%,#8A8A8A 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 2px 10px rgba(0,0,0,.85));
+}
+.redchrome{
+  background:linear-gradient(180deg,#FF2D55 0%,#E31937 45%,#7C0F1F 62%,#E31937 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:2px;
+  font-size:12.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;border:1px solid transparent;
+  transition:.28s cubic-bezier(.2,.7,.3,1);cursor:pointer;position:relative;overflow:hidden}
+.btn.red{background:var(--red);color:#fff;box-shadow:0 8px 30px rgba(227,25,55,.28)}
+.btn.red:hover{background:var(--red-bright);transform:translateY(-2px);box-shadow:0 14px 40px rgba(227,25,55,.42)}
+.btn.ghost{border-color:rgba(192,192,192,.35);color:var(--bright)}
+.btn.ghost:hover{border-color:var(--chrome);background:rgba(192,192,192,.07);transform:translateY(-2px)}
+
+/* ---------- header ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:900;transition:.4s}
+header.solid{background:rgba(5,5,5,.82);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--line)}
+.topbar{background:rgba(0,0,0,.72);border-bottom:1px solid var(--line);font-size:11.5px;font-weight:600;letter-spacing:.6px;transition:.4s}
+header.solid .topbar{display:none}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:34px;color:var(--steel)}
+.topbar b{color:var(--bright)}
+.nav{display:flex;align-items:center;gap:34px;height:78px;transition:.4s}
+.brand{display:flex;align-items:center;gap:12px;white-space:nowrap}
+.brand svg{height:34px;width:auto;display:block}
+.brand .tag{font-size:7.4px;letter-spacing:2.6px;color:var(--steel);font-weight:600}
+.menu{display:flex;gap:26px;font-size:12.6px;font-weight:600;color:var(--chrome);flex:1}
+.menu a{position:relative;padding:4px 0;transition:color .25s}
+.menu a:after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--red);transition:width .3s}
+.menu a:hover{color:#fff}.menu a:hover:after{width:100%}
+.burger{display:none;width:42px;height:42px;border:1px solid var(--line);background:transparent;border-radius:2px;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger i{display:block;width:18px;height:1.5px;background:var(--chrome)}
+
+/* ---------- hero ---------- */
+/* ================= HERO ================= */
+#home{padding:0;position:relative}
+#hero{position:relative;height:100svh;min-height:660px;overflow:hidden;background:#050505}
+.heroMedia{position:absolute;inset:0;z-index:1;overflow:hidden}
+.heroMedia video,.heroMedia img{width:100%;height:100%;object-fit:cover;display:block}
+.heroMedia:after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(5,5,5,.94) 0%,rgba(5,5,5,.78) 34%,rgba(5,5,5,.30) 62%,rgba(5,5,5,.55) 100%),
+    linear-gradient(180deg,rgba(5,5,5,.72) 0%,transparent 22%,transparent 58%,rgba(5,5,5,.96) 100%)}
+.heroScan{position:absolute;left:0;right:0;height:1px;z-index:2;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(227,25,55,.85),transparent);opacity:.55;
+  animation:scan 6.5s cubic-bezier(.6,0,.4,1) infinite}
+@keyframes scan{0%{top:8%}55%{top:88%}100%{top:8%}}
+#gl{position:absolute;inset:0;z-index:2;display:block;width:100%;height:100%}
+.herobg{position:absolute;inset:0;z-index:0}
+.heroin{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:center;padding-top:96px}
+.heroin h1{margin-bottom:26px;max-width:1000px}
+.heroin .lead{max-width:560px;margin-bottom:38px}
+.herocta{display:flex;gap:14px;flex-wrap:wrap}
+.scrollhint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:7px;font-size:9.6px;letter-spacing:3.4px;color:var(--steel);text-transform:uppercase}
+.scrollhint .bar{width:1px;height:44px;background:linear-gradient(180deg,var(--red),transparent)}
+.marquee{position:absolute;bottom:0;left:0;right:0;z-index:3;border-top:1px solid var(--line);background:rgba(5,5,5,.6);backdrop-filter:blur(8px);overflow:hidden;height:44px;display:flex;align-items:center}
+.mq{display:flex;gap:54px;white-space:nowrap;animation:mq 26s linear infinite;font-size:11px;letter-spacing:2.6px;color:var(--steel);text-transform:uppercase;font-weight:700}
+.mq span:before{content:"◆";color:var(--red);margin-right:16px;font-size:8px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section{position:relative;padding:clamp(80px,10vw,150px) 0}
+.shead{max-width:760px;margin-bottom:clamp(44px,5vw,74px)}
+.shead.center{margin-left:auto;margin-right:auto;text-align:center}
+.shead.center .eyebrow{justify-content:center}
+.shead h2{margin-bottom:20px}
+.reveal{opacity:0;transform:translateY(38px);transition:opacity .9s cubic-bezier(.2,.7,.3,1),transform .9s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- services ---------- */
+.svcs{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.svc{position:relative;grid-column:span 4;background:linear-gradient(160deg,var(--panel2),var(--matte));
+  border:1px solid var(--line);border-radius:3px;padding:34px 30px 30px;overflow:hidden;
+  display:flex;flex-direction:column;gap:16px;min-height:250px;transition:.4s cubic-bezier(.2,.7,.3,1)}
+.svc:hover{border-color:rgba(227,25,55,.45);transform:translateY(-5px);box-shadow:0 22px 60px rgba(0,0,0,.6)}
+.svc .glow{position:absolute;top:-40%;right:-30%;width:230px;height:230px;border-radius:50%;
+  background:radial-gradient(circle,rgba(227,25,55,.20),transparent 68%);opacity:0;transition:.5s}
+.svc:hover .glow{opacity:1}
+.svc .ic{width:44px;height:44px;border:1px solid rgba(192,192,192,.22);border-radius:3px;display:grid;place-items:center;color:var(--red);font-size:19px}
+.svc p{font-weight:400;color:var(--steel);font-size:13.6px;line-height:1.62;flex:1}
+.svc .go{font-size:10.6px;letter-spacing:2.2px;text-transform:uppercase;color:var(--chrome);font-weight:700}
+.svc:hover .go{color:var(--red)}
+.svc.feat{grid-column:span 8;background:
+  radial-gradient(600px 300px at 88% 0%,rgba(227,25,55,.14),transparent 60%),
+  linear-gradient(150deg,#141419,#0B0B0E)}
+.svc.feat h3{font-size:clamp(20px,2vw,27px)}
+.badge{position:absolute;top:24px;right:26px;font-size:9.4px;letter-spacing:2.4px;text-transform:uppercase;
+  color:var(--red);border:1px solid rgba(227,25,55,.4);padding:5px 11px;border-radius:2px;font-weight:700}
+
+/* ---------- split ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,76px);align-items:center}
+.media{position:relative;aspect-ratio:4/3;border-radius:3px;overflow:hidden;border:1px solid var(--line);background:#0C0C0F}
+.media img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.06) saturate(.96)}
+.media .ph{position:absolute;inset:0;display:grid;place-items:center;font-size:10.6px;letter-spacing:2.6px;color:var(--steel);text-transform:uppercase;text-align:center;padding:20px}
+.media:after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,transparent 40%,rgba(5,5,5,.62));pointer-events:none}
+.checks{display:flex;flex-wrap:wrap;gap:9px;margin:26px 0 30px}
+.checks span{font-size:12.2px;font-weight:600;color:var(--chrome);border:1px solid var(--line);
+  background:rgba(192,192,192,.04);border-radius:2px;padding:8px 13px}
+.checks span:before{content:"▪ ";color:var(--red)}
+
+/* ---------- story: pinned scroll sequence ---------- */
+.story{position:relative;background:#050505;height:600vh}
+.story .scenes{position:sticky;top:0;height:100svh;min-height:560px;overflow:hidden}
+.story .scene{position:absolute;inset:0;opacity:0;will-change:opacity,transform}
+.story .scene[data-i="0"]{opacity:1}   /* default-visible so the section is never black */
+.story .scene img{width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
+.story .scene:after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(5,5,5,.80) 0%,rgba(5,5,5,.35) 38%,rgba(5,5,5,.90) 100%)}
+.story .cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding-bottom:clamp(44px,7vh,90px)}
+.story .cap .wrap{max-width:1240px;margin:0 auto;padding:0 30px}
+.story .cap .n{font-size:11px;letter-spacing:4px;color:var(--red);font-weight:700;margin-bottom:14px}
+.story .cap h3{font-size:clamp(26px,4vw,52px);font-weight:900;font-style:italic;margin-bottom:12px;max-width:800px}
+.story .cap p{max-width:520px;color:var(--chrome);font-weight:400;font-size:15px;line-height:1.6}
+.story .rail{position:absolute;right:34px;top:50%;transform:translateY(-50%);z-index:4;
+  display:flex;flex-direction:column;gap:12px}
+.story .rail i{display:block;width:2px;height:22px;background:rgba(192,192,192,.26);transition:.4s}
+.story .rail i.on{background:var(--red);height:40px}
+@media(max-width:820px){
+  .story{height:500vh}
+  .story .rail{display:none}
+  .story .cap{padding-bottom:70px}
+}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.step{background:var(--matte);padding:38px 30px;position:relative;transition:.4s}
+.step:hover{background:var(--panel2)}
+.step b{display:block;font-size:11.6px;letter-spacing:3px;color:var(--red);margin-bottom:20px;font-weight:700}
+.step h3{margin-bottom:10px}
+.step p{font-weight:400;color:var(--steel);font-size:13.4px;line-height:1.62}
+.step .ln{position:absolute;left:0;top:0;width:0;height:2px;background:linear-gradient(90deg,var(--red),transparent);transition:width .6s}
+
+/* ---------- video band (pinned) ---------- */
+.band{position:relative;height:100svh;min-height:600px;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band .vid{position:absolute;inset:0;z-index:1}
+.band .vid video,.band .vid img{width:100%;height:100%;object-fit:cover;display:block}
+.band .vid:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.72),rgba(5,5,5,.45) 40%,rgba(5,5,5,.92))}
+.band .ct{position:relative;z-index:2;height:100%;display:flex;align-items:center}
+.band h2{max-width:900px;margin-bottom:22px}
+
+/* ---------- ankauf ---------- */
+.band2{background:linear-gradient(120deg,#120A0C 0%,#08080A 55%,#0F0F13 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.band2 .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,76px);align-items:center;padding-top:clamp(80px,9vw,132px);padding-bottom:clamp(80px,9vw,132px)}
+.types{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.types span{font-size:12.6px;font-weight:600;color:var(--chrome);border:1px solid var(--line);
+  background:rgba(192,192,192,.035);padding:13px 16px;border-radius:2px;transition:.3s}
+.types span:hover{border-color:rgba(227,25,55,.5);color:#fff;transform:translateX(4px)}
+
+/* ---------- gallery ---------- */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gal figure{position:relative;aspect-ratio:3/4;border-radius:3px;overflow:hidden;border:1px solid var(--line);background:#0B0B0E}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.3,1)}
+.gal figure:hover img{transform:scale(1.07)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 16px;font-size:10.6px;letter-spacing:2.2px;
+  text-transform:uppercase;color:var(--bright);background:linear-gradient(0deg,rgba(5,5,5,.92),transparent)}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:var(--matte);padding:38px 26px;text-align:center}
+.stat b{display:block;font-size:clamp(30px,3.6vw,48px);font-weight:900;font-style:italic;
+  background:linear-gradient(180deg,#fff,#C0C0C0 40%,#7A7A7A 62%,#E8E8E8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:10.6px;letter-spacing:2.6px;text-transform:uppercase;color:var(--steel);font-weight:700}
+
+/* ---------- contact ---------- */
+.cgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(34px,5vw,72px)}
+.form{background:linear-gradient(160deg,var(--panel2),var(--matte));border:1px solid var(--line);border-radius:3px;padding:34px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.field label{font-size:10.4px;letter-spacing:2.2px;text-transform:uppercase;color:var(--steel);font-weight:700}
+.field input,.field select,.field textarea{background:#0B0B0E;border:1px solid rgba(192,192,192,.18);color:#fff;
+  padding:14px;border-radius:2px;font-size:14px;font-family:inherit;font-weight:600;transition:.25s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(227,25,55,.14)}
+.field input::placeholder,.field textarea::placeholder{color:#5A5A60}
+.upload{border:1px dashed rgba(192,192,192,.28);border-radius:2px;padding:22px;text-align:center;
+  color:var(--steel);font-size:12.6px;background:#0B0B0E;transition:.25s;cursor:pointer}
+.upload:hover{border-color:var(--red);color:var(--chrome)}
+.cinfo{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.cinfo a{display:flex;align-items:center;gap:14px;font-size:14.4px;font-weight:600;color:var(--chrome);
+  border:1px solid var(--line);background:rgba(192,192,192,.03);padding:17px 19px;border-radius:2px;transition:.3s}
+.cinfo a:hover{border-color:var(--red);color:#fff;transform:translateX(5px)}
+.cinfo .k{width:34px;height:34px;border:1px solid rgba(227,25,55,.4);border-radius:2px;display:grid;place-items:center;color:var(--red);font-size:14px;flex:none}
+
+/* ---------- faq ---------- */
+.faq details{border-bottom:1px solid var(--line);padding:26px 0}
+.faq summary{cursor:pointer;font-size:clamp(15px,1.5vw,19px);font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:22px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";color:var(--red);font-size:24px;font-weight:400;line-height:1;transition:.3s}
+.faq details[open] summary:after{transform:rotate(45deg)}
+.faq p{margin-top:15px;font-weight:400;color:var(--steel);font-size:14.2px;line-height:1.7;max-width:860px}
+
+/* ---------- footer ---------- */
+footer{background:#030303;border-top:1px solid var(--line);padding:clamp(60px,7vw,90px) 0 34px;font-size:13.6px}
+.fg{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:44px;padding-bottom:46px;border-bottom:1px solid var(--line)}
+footer h4{font-size:10.6px;letter-spacing:2.6px;text-transform:uppercase;color:var(--steel);margin-bottom:18px;font-weight:700}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+footer li a{font-weight:600;color:var(--chrome);transition:.25s}
+footer li a:hover{color:var(--red)}
+.legal{display:flex;justify-content:space-between;gap:20px;padding-top:26px;color:#6A6A70;font-size:11.6px;flex-wrap:wrap}
+
+/* ---------- mobile ---------- */
+@media(max-width:1024px){
+  .menu{display:none}.burger{display:flex}
+  .svcs{grid-template-columns:repeat(2,1fr)}
+  .svc,.svc.feat{grid-column:span 2}
+  .split,.cgrid,.band2 .wrap{grid-template-columns:1fr}
+  .steps,.stats{grid-template-columns:repeat(2,1fr)}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .fg{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .wrap{padding:0 20px}
+  .f2,.types{grid-template-columns:1fr}
+  .stats,.steps{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr}
+  .topbar{display:none}
+  .heroin{padding-top:96px}
+  .btn{width:100%;justify-content:center}
+}
+#drawer{position:fixed;inset:0;z-index:950;background:rgba(5,5,5,.97);backdrop-filter:blur(20px);
+  display:none;flex-direction:column;justify-content:center;padding:0 30px;gap:6px}
+#drawer.open{display:flex}
+#drawer a{font-size:26px;font-weight:900;font-style:italic;padding:14px 0;border-bottom:1px solid var(--line)}
+#drawer .x{position:absolute;top:22px;right:26px;font-size:30px;color:var(--chrome);background:none;border:0;cursor:pointer}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header id="hd">
+  <div class="topbar"><div class="wrap">
+    <div>Nationwide vehicle transport &nbsp;·&nbsp; <b>24/7 Emergency</b> &nbsp;·&nbsp; Karlsruhe · Bretten · Germany</div>
+    <div>Mon–Fri 08:00–18:00 &nbsp;·&nbsp; <b>+49 (0) 000 000 000</b></div>
+  </div></div>
+  <div class="wrap nav">
+    <a href="#home" class="brand" aria-label="RoadSide Motors">
+      <svg viewBox="0 0 300 62" role="img" aria-label="RoadSide Motors">
+        <defs>
+          <linearGradient id="chromeG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FFFFFF"/><stop offset=".38" stop-color="#C0C0C0"/>
+            <stop offset=".54" stop-color="#6E6E6E"/><stop offset=".70" stop-color="#E8E8E8"/>
+            <stop offset="1" stop-color="#8A8A8A"/>
+          </linearGradient>
+          <linearGradient id="redG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FF2D55"/><stop offset=".5" stop-color="#E31937"/>
+            <stop offset=".64" stop-color="#8A1020"/><stop offset="1" stop-color="#E31937"/>
+          </linearGradient>
+        </defs>
+        <text x="0" y="42" font-family="Noto Sans Display, Arial" font-size="46" font-style="italic"
+              font-weight="900" letter-spacing="-1.4" fill="url(#chromeG)">Road</text>
+        <text x="119" y="42" font-family="Noto Sans Display, Arial" font-size="46" font-style="italic"
+              font-weight="900" letter-spacing="-1.4" fill="url(#redG)">S</text>
+        <text x="153" y="42" font-family="Noto Sans Display, Arial" font-size="46" font-style="italic"
+              font-weight="900" letter-spacing="-1.4" fill="url(#chromeG)">ide</text>
+        <g transform="translate(104.5,12)">
+          <circle cx="13" cy="13" r="12.6" fill="#0A0A0A" stroke="url(#chromeG)" stroke-width="2"/>
+          <circle cx="13" cy="13" r="4.1" fill="url(#redG)"/>
+          <g stroke="#C0C0C0" stroke-width="1.5" stroke-linecap="round">
+            <line x1="13" y1="13" x2="13" y2="3.4"/><line x1="13" y1="13" x2="21.3" y2="8.2"/>
+            <line x1="13" y1="13" x2="21.3" y2="17.8"/><line x1="13" y1="13" x2="13" y2="22.6"/>
+            <line x1="13" y1="13" x2="4.7" y2="17.8"/><line x1="13" y1="13" x2="4.7" y2="8.2"/>
+          </g>
+        </g>
+        <text x="119" y="58" font-family="Noto Sans Display, Arial" font-size="8.6" font-weight="600"
+              letter-spacing="2.4" fill="#A0A0A0">MOTORS</text>
+      </svg>
+    </a>
+    <nav class="menu">
+      <a href="#services">Services</a>
+      <a href="#transport">Vehicle Transport</a>
+      <a href="#story">Our Film</a>
+      <a href="#process">How It Works</a>
+      <a href="#buy">We Buy Your Car</a>
+      <a href="#work">Our Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn red">Get a Transport Quote</a>
+    <button class="burger" id="bg" aria-label="Menu"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<div id="drawer">
+  <button class="x" id="dx" aria-label="Close">×</button>
+  <a href="#services">Services</a><a href="#transport">Vehicle Transport</a><a href="#story">Our Film</a><a href="#process">How It Works</a>
+  <a href="#buy">We Buy Your Car</a><a href="#work">Our Work</a><a href="#about">About</a><a href="#contact">Contact</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section id="home">
+  <div id="hero">
+    <div class="herobg"></div>
+    <div class="heroMedia">
+      <video id="herovid" muted loop playsinline autoplay preload="auto" poster="assets/hero_final_poster.jpg">
+        <source src="assets/hero_final_web.mp4" type="video/mp4" media="(min-width:641px)">
+        <source src="assets/hero_final_mobile.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="heroScan"></div>
+    <canvas id="gl"></canvas>
+    <div class="wrap heroin">
+      <div class="eyebrow">Automotive Management &amp; Transport</div>
+      <h1>
+        <span class="chrome">Vehicle transport.</span><br>
+        <span class="chrome">Done </span><span class="redchrome">properly.</span>
+      </h1>
+      <p class="lead">Drivable or not. Accident damage, engine or gearbox failure, no TÜV, locked wheels, won't start — we collect it and deliver it. Nationwide and across Europe, with one partner handling everything.</p>
+      <div class="herocta">
+        <a href="#contact" class="btn red">Request a Transport</a>
+        <a href="tel:+490000000000" class="btn ghost">Call 24/7</a>
+      </div>
+    </div>
+    <div class="scrollhint"><span>Scroll</span><div class="bar"></div></div>
+    <div class="marquee"><div class="mq" id="mq">
+      <span>Fully insured</span><span>Nationwide &amp; Europe</span><span>24/7 Emergency</span><span>Non-drivable vehicles</span><span>Private &amp; Dealer</span><span>Estimate in 60 seconds</span>
+      <span>Fully insured</span><span>Nationwide &amp; Europe</span><span>24/7 Emergency</span><span>Non-drivable vehicles</span><span>Private &amp; Dealer</span><span>Estimate in 60 seconds</span>
+    </div></div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div class="eyebrow">Our Services</div>
+      <h2><span class="chrome">One partner for</span> <span class="redchrome">everything</span></h2>
+      <p class="lead">From a full transport to a single replacement part: RoadSide Motors coordinates it all — one contact, vetted specialist partners, quality control throughout.</p>
+    </div>
+    <div class="svcs">
+      <article class="svc feat reveal">
+        <div class="glow"></div><div class="badge">Main Service</div>
+        <div class="ic">🚚</div>
+        <h3>Vehicle Transport</h3>
+        <p>Drivable or non-drivable, accident vehicles, engine and gearbox damage, vehicles without TÜV. Pick-up and delivery nationwide and across Europe — including vehicles that don't roll or steer. Send us the details and photos and we come back with a price the same day.</p>
+        <a href="#transport" class="go">See how it works →</a>
+      </article>
+      <article class="svc reveal"><div class="glow"></div><div class="ic">🛻</div><h3>Trailer Rental</h3>
+        <p>Trailers with loading ramps, straps, lighting and tyre check included. Available by the hour, day, week, or on a monthly subscription.</p><a href="#contact" class="go">Check availability →</a></article>
+      <article class="svc reveal"><div class="glow"></div><div class="ic">🚗</div><h3>We Buy Your Car</h3>
+        <p>We buy the vehicles other buyers turn away — accident, hail, engine and gearbox damage, no TÜV, high mileage, export.</p><a href="#buy" class="go">Offer your vehicle →</a></article>
+      <article class="svc reveal"><div class="glow"></div><div class="ic">🔎</div><h3>Wanted Vehicle</h3>
+        <p>Looking for a specific make, model, engine or equipment level? Tell us the specification and we'll source it — for private and export customers.</p><a href="#contact" class="go">Start a search →</a></article>
+      <article class="svc reveal"><div class="glow"></div><div class="ic">🔧</div><h3>Accident &amp; Body Repair</h3>
+        <p>Accident repair, bodywork, painting, hail damage. Carried out by our specialist partners — we coordinate and keep one point of contact.</p><a href="#contact" class="go">Report damage →</a></article>
+      <article class="svc reveal"><div class="glow"></div><div class="ic">🛞</div><h3>Alloy Wheel Repair</h3>
+        <p>Kerb damage, scratches, paint damage and refurbishment. Send photos of the damage and we'll get the partner quote for you.</p><a href="#contact" class="go">Request a repair →</a></article>
+      <article class="svc reveal"><div class="glow"></div><div class="ic">⚙️</div><h3>Parts, Tyres &amp; Camper Parts</h3>
+        <p>Not a shop — a request. We source car parts, tyres and motorhome parts on demand and come back with availability and price.</p><a href="#contact" class="go">Request a part →</a></article>
+      <article class="svc reveal"><div class="glow"></div><div class="ic">🏕️</div><h3>Mobile Camper Repair</h3>
+        <p>We come to you: electrics, batteries, water pumps, heating, fridges, lighting and fault diagnosis — wherever your camper is parked.</p><a href="#contact" class="go">Book a visit →</a></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STORY: pinned scroll film ================= -->
+<section class="story" id="story">
+  <div class="scenes" id="scenes">
+    <div class="rail" id="rail"></div>
+
+    <div class="scene" data-i="0">
+      <img src="film/f1_arrival.jpg" alt="The transporter arriving at the depot before dawn">
+      <div class="cap"><div class="wrap">
+        <div class="n">01 — ARRIVAL</div>
+        <h3 class="chrome">It starts before dawn.</h3>
+        <p>Loaded, checked and on the road while most of the country is still asleep.</p>
+      </div></div>
+    </div>
+
+    <div class="scene" data-i="1">
+      <img src="film/f2_ramps.jpg" alt="Rear loading ramps lowering on the flat-bed transporter">
+      <div class="cap"><div class="wrap">
+        <div class="n">02 — RAMPS DOWN</div>
+        <h3 class="chrome">The right equipment, every time.</h3>
+        <p>Hydraulic rear ramps, winch and strapping — for vehicles that drive, and for the ones that never will again.</p>
+      </div></div>
+    </div>
+
+    <div class="scene" data-i="2">
+      <img src="film/f3_loading.jpg" alt="A vehicle being loaded onto the flat-bed transporter">
+      <div class="cap"><div class="wrap">
+        <div class="n">03 — LOADING</div>
+        <h3 class="chrome">Non-drivable is normal.</h3>
+        <p>Winched on, not driven on. Accident damage, seized wheels, no keys — it changes the method, not the job.</p>
+      </div></div>
+    </div>
+
+    <div class="scene" data-i="3">
+      <img src="film/f4_strap.jpg" alt="Strapping a wheel down on the transporter deck">
+      <div class="cap"><div class="wrap">
+        <div class="n">04 — SECURED</div>
+        <h3 class="chrome">Strapped like it's our own.</h3>
+        <p>Every wheel strapped to the deck before the truck moves an inch. Fully insured, every journey.</p>
+      </div></div>
+    </div>
+
+    <div class="scene" data-i="4">
+      <img src="film/f5_road.jpg" alt="The transporter on the open road at dawn">
+      <div class="cap"><div class="wrap">
+        <div class="n">05 — ON THE ROAD</div>
+        <h3 class="chrome">Nationwide. And across Europe.</h3>
+        <p>One driver, one contact, one price agreed before we leave. No handovers, nobody to chase.</p>
+      </div></div>
+    </div>
+
+    <div class="scene" data-i="5">
+      <img src="film/f6_return.jpg" alt="Returning to the yard at golden hour">
+      <div class="cap"><div class="wrap">
+        <div class="n">06 — RETURN</div>
+        <h3 class="chrome">Delivered, not dumped.</h3>
+        <p>We come back to the yard, or straight to you. Either way the vehicle arrives exactly as it left.</p>
+      </div></div>
+    </div>
+
+    <div class="scene" data-i="6">
+      <img src="film/f7_unloaded.jpg" alt="The vehicle unloaded and standing in the yard">
+      <div class="cap"><div class="wrap">
+        <div class="n">07 — UNLOADED</div>
+        <h3 class="chrome">Where you need it to be.</h3>
+        <p>Workshop, dealership, your driveway or a port for export. We put it exactly where it belongs.</p>
+      </div></div>
+    </div>
+
+    <div class="scene" data-i="7">
+      <img src="film/f8_keys.jpg" alt="Keys being handed over">
+      <div class="cap"><div class="wrap">
+        <div class="n">08 — HANDOVER</div>
+        <h3 class="chrome">Hands over, done.</h3>
+        <p>Keys handed back, condition report signed, one contact the entire way through.</p>
+      </div></div>
+    </div>
+
+    <div class="scene" data-i="8">
+      <img src="film/f9_driveoff.jpg" alt="The vehicle driving away at dusk">
+      <div class="cap"><div class="wrap">
+        <div class="n">09 — GONE</div>
+        <h3 class="chrome">And it's on its way.</h3>
+        <p>From a request to a delivered vehicle — one partner for the whole journey.</p>
+        <div class="herocta" style="margin-top:30px">
+          <a href="#contact" class="btn red">Request a Transport</a>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRANSPORT ================= -->
+<section id="transport">
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="eyebrow">Main Service</div>
+      <h2><span class="chrome">Vehicle transport —</span><br><span class="redchrome">even when nothing moves</span></h2>
+      <p class="lead" style="margin-top:20px">Everyday car or total loss: we collect from wherever it stands and deliver it where it needs to be. Your vehicle's condition changes the loading method — so we ask about it up front, in detail, before we quote.</p>
+      <div class="checks">
+        <span>Accident vehicle</span><span>Engine damage</span><span>Gearbox damage</span><span>Won't start</span>
+        <span>Wheels locked</span><span>Won't steer</span><span>Vehicle locked</span><span>No TÜV</span>
+        <span>Difficult loading</span><span>Multi-vehicle route</span>
+      </div>
+      <a href="#contact" class="btn red">Send vehicle details &amp; photos</a>
+    </div>
+    <div class="media reveal" data-img="transport_loading">
+      <img alt="Loading a vehicle onto a transporter" src="assets/transport_loading.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+      <div class="ph">Shot 02 — Loading</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="process">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div class="eyebrow">How It Works</div>
+      <h2><span class="chrome">Four steps.</span> <span class="redchrome">No surprises.</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="ln"></div><b>01</b><h3>Request</h3><p>Tell us pick-up, delivery, vehicle details and condition. Add photos — they make the quote accurate.</p></div>
+      <div class="step reveal"><div class="ln"></div><b>02</b><h3>Confirmation</h3><p>We review your request personally and confirm the price and the schedule with you.</p></div>
+      <div class="step reveal"><div class="ln"></div><b>03</b><h3>Collection</h3><p>We arrive at the agreed time — nationwide, at night, or on short notice for emergencies.</p></div>
+      <div class="step reveal"><div class="ln"></div><b>04</b><h3>Delivery</h3><p>Handover at the destination with a condition report, so both sides know exactly what was moved.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ANKAUF ================= -->
+<div class="band2" id="buy">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">We Buy Your Vehicle</div>
+      <h2><span class="chrome">Even when</span><br><span class="redchrome">others say no</span></h2>
+      <p class="lead" style="margin-top:20px">Enter the details and photos, we contact you with a concrete offer — straightforward and with no obligation.</p>
+      <div class="herocta" style="margin-top:30px">
+        <a href="#contact" class="btn red">Offer Your Vehicle</a>
+        <a href="tel:+490000000000" class="btn ghost">Call Us</a>
+      </div>
+    </div>
+    <div class="types reveal">
+      <span>Accident vehicles</span><span>Hail damage</span><span>Engine damage</span><span>Gearbox damage</span>
+      <span>Mechanical faults</span><span>No TÜV</span><span>High mileage</span><span>Export vehicles</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= WORK GALLERY ================= -->
+<section id="work">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div class="eyebrow">Our Work</div>
+      <h2><span class="chrome">What we</span> <span class="redchrome">actually do</span></h2>
+      <p class="lead">Transport, loading, partner repairs, mobile camper service, parts and wheels — the range of work that lands on our ramps.</p>
+    </div>
+    <div class="gal">
+      <figure class="reveal" data-img="trailer_hitch"><img src="assets/trailer_hitch.jpg" alt="Trailer being hitched"><figcaption>Trailer rental</figcaption></figure>
+      <figure class="reveal" data-img="ankauf_yard"><img src="assets/ankauf_yard.jpg" alt="Damaged vehicle purchase"><figcaption>Vehicle purchase</figcaption></figure>
+      <figure class="reveal" data-img="repair_booth"><img src="assets/repair_booth.jpg" alt="Bodywork and painting"><figcaption>Body &amp; paint</figcaption></figure>
+      <figure class="reveal" data-img="rim_damaged"><img src="assets/rim_damaged.jpg" alt="Alloy wheel repair"><figcaption>Wheel repair</figcaption></figure>
+      <figure class="reveal" data-img="camper_service"><img src="assets/camper_service.jpg" alt="Mobile camper service"><figcaption>Mobile camper service</figcaption></figure>
+      <figure class="reveal" data-img="parts_tyre"><img src="assets/parts_tyre.jpg" alt="Parts and tyres"><figcaption>Parts &amp; tyres</figcaption></figure>
+      <figure class="reveal" data-img="wishcar_reveal"><img src="assets/wishcar_reveal.jpg" alt="Wanted vehicle sourcing"><figcaption>Vehicle sourcing</figcaption></figure>
+      <figure class="reveal" data-img="about_workshop"><img src="assets/about_workshop.jpg" alt="Our operation at dusk"><figcaption>Our operation</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT / STATS ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div class="eyebrow">About RoadSide Motors</div>
+      <h2><span class="chrome">Automotive management,</span> <span class="redchrome">not just transport</span></h2>
+      <p class="lead">RoadSide Motors is a transport and automotive services company based in the Karlsruhe area. Our main work is moving vehicles — including the ones nobody else wants to move. Around that, we handle vehicle purchasing, sourcing, repairs through vetted partners, parts and mobile camper service. One contact instead of five.</p>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><b>24 h</b><span>Response time</span></div>
+      <div class="stat reveal"><b>100 %</b><span>Insured</span></div>
+      <div class="stat reveal"><b>9</b><span>Services</span></div>
+      <div class="stat reveal"><b>DE + EU</b><span>Coverage</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="wrap faq">
+    <div class="shead reveal">
+      <div class="eyebrow">FAQ</div>
+      <h2><span class="chrome">Questions,</span> <span class="redchrome">answered</span></h2>
+    </div>
+    <details open class="reveal"><summary>Do you transport vehicles that don't drive?</summary><p>Yes — non-drivable vehicles are a core part of our work. We need to know whether it rolls, whether it steers, what type of damage it has, and we ask for photos so we can plan the loading correctly.</p></details>
+    <details class="reveal"><summary>What if the vehicle is locked or the wheels are blocked?</summary><p>Tell us in the request. Locked vehicles and blocked wheels change how we load, and we bring the right equipment — but only if we know in advance.</p></details>
+    <details class="reveal"><summary>Do you operate nationwide or only locally?</summary><p>Nationwide across Germany and across Europe. Longer routes and exports are quoted individually.</p></details>
+    <details class="reveal"><summary>Do you buy damaged vehicles?</summary><p>Yes. Accident, hail, engine and gearbox damage, vehicles without TÜV, high mileage and export vehicles. Send the details and photos and we'll come back with an offer.</p></details>
+    <details class="reveal"><summary>Can you repair my vehicle, or do you only transport it?</summary><p>We coordinate repairs — accident repair, bodywork, painting, hail damage and wheel refurbishment — through our specialist partners. You keep one contact with us and we maintain quality control over the whole process.</p></details>
+    <details class="reveal"><summary>Do you source parts and tyres?</summary><p>We do, on request. Send the vehicle or camper details, the part you need and photos if you have them. We check availability and price and get back to you.</p></details>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap cgrid">
+    <div class="reveal">
+      <div class="eyebrow">Contact</div>
+      <h2><span class="chrome">Tell us what</span><br><span class="redchrome">needs moving</span></h2>
+      <p class="lead" style="margin-top:20px">We usually reply within a few hours. For emergencies, call us — we answer 24/7.</p>
+      <div class="cinfo">
+        <a href="tel:+490000000000"><span class="k">☎</span>+49 (0) 000 000 000</a>
+        <a href="https://wa.me/490000000000"><span class="k">✆</span>WhatsApp — message us directly</a>
+        <a href="mailto:info@roadsidemotors.de"><span class="k">✉</span>info@roadsidemotors.de</a>
+        <a href="#contact"><span class="k">⌚</span>Mon–Fri 08:00–18:00 · Emergency 24/7</a>
+      </div>
+    </div>
+    <div class="form reveal">
+      <form onsubmit="event.preventDefault();this.querySelector('.snd').textContent='Request received — we will contact you shortly.';">
+        <div class="f2">
+          <div class="field"><label>Name</label><input placeholder="Your name" required></div>
+          <div class="field"><label>Phone</label><input placeholder="+49 …" required></div>
+        </div>
+        <div class="f2">
+          <div class="field"><label>Pick-up location</label><input placeholder="Postcode, city"></div>
+          <div class="field"><label>Delivery location</label><input placeholder="Postcode, city"></div>
+        </div>
+        <div class="f2">
+          <div class="field"><label>Vehicle</label><input placeholder="Make &amp; model"></div>
+          <div class="field"><label>Condition</label>
+            <select><option>Drivable</option><option>Non-drivable / accident</option><option>Won't start</option><option>Wheels locked</option><option>No TÜV</option></select></div>
+        </div>
+        <div class="field"><label>Message</label><textarea rows="3" placeholder="Damage details, preferred dates, anything we should know…"></textarea></div>
+        <div class="upload">📎 Add photos of the vehicle (JPG, PNG — max 10 MB)</div>
+        <button type="submit" class="btn red" style="width:100%;justify-content:center;margin-top:16px">Send Request</button>
+        <p class="snd" style="margin-top:12px;font-size:12.6px;color:var(--steel);font-weight:400"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <a href="#home" class="brand" style="margin-bottom:18px">
+          <svg viewBox="0 0 300 62" style="height:32px"><use href="#logoFull"></use></svg>
+        </a>
+        <p class="lead" style="max-width:340px;font-weight:400">Automotive Management &amp; Transport. Vehicle transport, trailer rental, vehicle purchase and automotive services — nationwide.</p>
+      </div>
+      <div><h4>Services</h4><ul>
+        <li><a href="#transport">Vehicle Transport</a></li><li><a href="#contact">Trailer Rental</a></li>
+        <li><a href="#buy">Vehicle Purchase</a></li><li><a href="#contact">Wanted Vehicle</a></li>
+        <li><a href="#contact">Accident &amp; Repair</a></li></ul></div>
+      <div><h4>Service</h4><ul>
+        <li><a href="#contact">Parts &amp; Tyres</a></li><li><a href="#contact">Wheel Repair</a></li>
+        <li><a href="#contact">Mobile Camper Repair</a></li><li><a href="#contact">Vehicle Sales</a></li></ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="#">Impressum</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li>
+        <li><a href="#contact">Contact</a></li></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 RoadSide Motors GmbH · All rights reserved</span><span>English preview — German version to follow</span></div>
+  </div>
+</footer>
+
+<!-- ================= LIBRARIES (local, no CDN dependency) ================= -->
+<script src="vendor/three.min.js"></script>
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script>
+/* ---------------- header + drawer ---------------- */
+const hd=document.getElementById('hd');
+addEventListener('scroll',()=>hd.classList.toggle('solid',scrollY>60),{passive:true});
+const dr=document.getElementById('drawer');
+document.getElementById('bg').onclick=()=>dr.classList.add('open');
+document.getElementById('dx').onclick=()=>dr.classList.remove('open');
+dr.querySelectorAll('a').forEach(a=>a.onclick=()=>dr.classList.remove('open'));
+
+/* ---------------- reveals ---------------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*70)+'ms';io.observe(el)});
+
+/* ---------------- counters ---------------- */
+const nums=document.querySelectorAll('.stat b');
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting) return; cio.unobserve(e.target);
+  const t=e.target.textContent; const m=t.match(/^(\d+)/);
+  if(!m) return; const target=+m[1]; let n=0;
+  const step=()=>{n+=Math.max(1,Math.round(target/28)); if(n>=target){e.target.textContent=t;return}
+    e.target.textContent=t.replace(/^\d+/,n); requestAnimationFrame(step)};
+  // keep suffix handled by simple text restore above
+  e.target.textContent='0'+t.replace(/^\d+/,''); requestAnimationFrame(step);
+}),{threshold:.6});
+nums.forEach(n=>cio.observe(n));
+
+/* ---------------- three.js hero: HUD overlay + brand wheel ---------------- */
+(function(){
+  if(!window.THREE) return;
+  const canvas=document.getElementById('gl');
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(52,innerWidth/innerHeight,.1,120);
+  camera.position.set(0,0,16);
+
+  const grp=new THREE.Group(); scene.add(grp);
+
+  // HUD particle field — offset right so it never sits behind the headline
+  const N=260, pos=new Float32Array(N*3);
+  for(let i=0;i<N;i++){ pos[i*3]=1+Math.random()*24; pos[i*3+1]=(Math.random()-.5)*20; pos[i*3+2]=-10+Math.random()*18 }
+  const pg=new THREE.BufferGeometry(); pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  const pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0xC0C0C0,size:.035,transparent:true,opacity:.30}));
+  scene.add(pts);
+
+  // brand wheel — bottom-right corner, small, reads as an engineering HUD element
+  const rings=[];
+  [[3.3,.016,0x8A8A8A,.34],[2.55,.011,0xE31937,.55],[1.95,.009,0xC0C0C0,.30]].forEach(([r,t,c,o],i)=>{
+    const g=new THREE.TorusGeometry(r,t,3,120);
+    const m=new THREE.MeshBasicMaterial({color:c,transparent:true,opacity:o});
+    const mesh=new THREE.Mesh(g,m); mesh.position.set(9.4,-5.6,-9-i*1.6); grp.add(mesh); rings.push(mesh);
+  });
+  const spokeMat=new THREE.MeshBasicMaterial({color:0xB8B8B8,transparent:true,opacity:.22});
+  for(let i=0;i<5;i++){
+    const a=(i/5)*Math.PI*2, len=3.25;
+    const g=new THREE.PlaneGeometry(.032,len);
+    const m=new THREE.Mesh(g,spokeMat);
+    m.position.set(9.4+Math.sin(a)*len/2,-5.6+Math.cos(a)*len/2,-9.4);
+    m.rotation.z=-a; grp.add(m);
+    const m2=m.clone(); m2.rotation.z=-a+.055; grp.add(m2);
+  }
+
+  const mouse={x:0,y:0};
+  addEventListener('mousemove',e=>{mouse.x=(e.clientX/innerWidth-.5);mouse.y=(e.clientY/innerHeight-.5)},{passive:true});
+
+  let raf, t=0, visible=true;
+  const hero=document.getElementById('hero');
+  new IntersectionObserver(es=>{visible=es[0].isIntersecting},{threshold:0}).observe(hero);
+
+  function loop(){
+    raf=requestAnimationFrame(loop);
+    if(!visible) return;
+    t+=.0045;
+    grp.rotation.z=t*.10;
+    rings.forEach((r,i)=>{r.rotation.z=-t*(.30+i*.22)});
+    camera.position.x+=(mouse.x*1.9-camera.position.x)*.045;
+    camera.position.y+=(-mouse.y*1.2-camera.position.y)*.045;
+    camera.lookAt(0,0,-4);
+    pts.rotation.y=t*.05;
+    renderer.render(scene,camera);
+  }
+  function resize(){
+    const w=innerWidth, h=hero.clientHeight||innerHeight;
+    renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+    renderer.setSize(w,h,false);
+    canvas.style.width='100%'; canvas.style.height='100%';
+    camera.aspect=w/h; camera.updateProjectionMatrix();
+  }
+  addEventListener('resize',resize); resize(); loop();
+
+  if(window.gsap&&window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to(camera.position,{z:13,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:1}});
+  }
+})();
+
+/* ---------------- GSAP scroll choreography ---------------- */
+if(window.gsap&&window.ScrollTrigger){
+  gsap.registerPlugin(ScrollTrigger);
+
+  // hero content parallax
+  gsap.to('.heroin',{yPercent:-14,opacity:.25,ease:'none',
+    scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
+  gsap.to('.marquee',{opacity:0,scrollTrigger:{trigger:'#hero',start:'60% top',end:'bottom top',scrub:true}});
+
+  // step progress lines
+  gsap.utils.toArray('.step').forEach((s,i)=>{
+    gsap.to(s.querySelector('.ln'),{width:'100%',duration:.8,ease:'power3.out',
+      scrollTrigger:{trigger:s,start:'top 82%'}});
+  });
+
+  // gallery stagger
+  gsap.from('.gal figure',{y:60,opacity:0,duration:1,stagger:.09,ease:'power3.out',
+    scrollTrigger:{trigger:'.gal',start:'top 80%'}});
+
+  /* ---------- STORY: pinned scroll-driven film ---------- */
+  const scenes=[...document.querySelectorAll('.story .scene')];
+  const rail=document.getElementById('rail');
+  if(scenes.length){
+    // build the progress rail
+    scenes.forEach(()=>rail.appendChild(document.createElement('i')));
+    const dots=[...rail.querySelectorAll('i')];
+
+    const showScene=i=>{
+      scenes.forEach((el,n)=>{
+        const on=n===i;
+        el.style.opacity=on?1:0;
+        el.style.transform=on?'scale(1)':'scale(1.06)';
+        el.style.transition='opacity .65s cubic-bezier(.4,0,.2,1),transform 1.2s cubic-bezier(.2,.7,.3,1)';
+        el.style.zIndex=on?2:1;
+      });
+      dots.forEach((d,n)=>d.classList.toggle('on',n===i));
+    };
+    showScene(0);
+
+    // expose for QA / deep links (?scene=N renders that scene directly)
+    window.__story={show:showScene, count:scenes.length};
+
+    ScrollTrigger.create({
+      trigger:'#story',
+      start:'top top',
+      end:'bottom bottom',
+      scrub:true,
+      invalidateOnRefresh:true,
+      onUpdate:self=>{
+        const n=scenes.length;
+        let i=Math.floor(self.progress*n);
+        if(i>=n) i=n-1;
+        if(i!==showScene._last){ showScene._last=i; showScene(i); }
+      }
+    });
+
+    // ScrollTrigger measures before the film images have laid out, so its start/end
+    // go stale and the sequence never advances. Refresh once everything is decoded.
+    let pending=scenes.length;
+    const bump=()=>{ if(--pending<=0) ScrollTrigger.refresh(); };
+    scenes.forEach(s=>{
+      const im=s.querySelector('img');
+      if(im && !im.complete) im.addEventListener('load',bump,{once:true});
+      else bump();
+    });
+    addEventListener('load',()=>ScrollTrigger.refresh());
+    addEventListener('resize',()=>ScrollTrigger.refresh());
+
+    // slow parallax drift on each scene image as it holds
+    scenes.forEach(s=>{
+      gsap.to(s.querySelector('img'),{yPercent:-6,ease:'none',
+        scrollTrigger:{trigger:'#story',start:'top top',end:'bottom bottom',scrub:1.2}});
+    });
+  }
+
+  // headline red-word sweep
+  gsap.utils.toArray('.redchrome').forEach(el=>{
+    gsap.from(el,{backgroundPositionX:'200%',duration:1.2,ease:'power2.out'});
+  });
+}
+
+
+/* QA helpers: ?at=<px> scrolls to a position; ?scene=N renders that story scene.
+   Both used to verify the sequence in headless browsers, where scroll events are throttled. */
+(function(){
+  const q=location.search;
+  const at=q.match(/[?&]at=(\d+)/);
+  const sc=q.match(/[?&]scene=(\d+)/);
+  addEventListener('load',()=>{
+    const run=()=>{
+      if(sc && window.__story){
+        const i=+sc[1];
+        try{ window.__story.show(i); }catch(e){}
+        // position the viewport inside the story so scene i is actually on screen
+        const el=document.querySelector('#story');
+        const range=el.offsetHeight - window.innerHeight;
+        window.scrollTo(0, el.offsetTop + (range*(i+0.5))/window.__story.count);
+      }
+      if(at) window.scrollTo(0,+at[1]);
+    };
+    requestAnimationFrame(()=>requestAnimationFrame(run));
+    setTimeout(run, 900);
+  });
+})();
+
+/* ---------------- asset fallback: hide broken images cleanly ---------------- */
+document.querySelectorAll('img').forEach(img=>{
+  img.addEventListener('error',()=>{ img.style.opacity=0 });
+});
+</script>
+</body>
+</html>
