@@ -8,7 +8,7 @@
 <meta property="og:title" content="RoadSide Motors — Automotive Management &amp; Transport">
 <meta property="og:description" content="Professional vehicle transport. Nationwide. One partner for everything.">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/webp" href="assets/brand/wheel.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,400;0,600;0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
@@ -66,7 +66,10 @@ header.solid .topbar{display:none}
 .topbar b{color:var(--bright)}
 .nav{display:flex;align-items:center;gap:34px;height:78px;transition:.4s}
 .brand{display:flex;align-items:center;gap:12px;white-space:nowrap}
-.brand svg{height:34px;width:auto;display:block}
+.brand img{display:block;height:46px;width:auto}
+.brand .brandmark{height:46px}
+.brand .brandfoot{height:74px}
+@media(max-width:640px){.brand img{height:38px}.brand .brandfoot{height:60px}}
 .brand .tag{font-size:7.4px;letter-spacing:2.6px;color:var(--steel);font-weight:600}
 .menu{display:flex;gap:26px;font-size:12.6px;font-weight:600;color:var(--chrome);flex:1}
 .menu a{position:relative;padding:4px 0;transition:color .25s}
@@ -83,8 +86,10 @@ header.solid .topbar{display:none}
 .heroMedia video,.heroMedia img{width:100%;height:100%;object-fit:cover;display:block}
 .heroMedia:after{content:"";position:absolute;inset:0;pointer-events:none;
   background:
-    linear-gradient(90deg,rgba(5,5,5,.94) 0%,rgba(5,5,5,.78) 34%,rgba(5,5,5,.30) 62%,rgba(5,5,5,.55) 100%),
-    linear-gradient(180deg,rgba(5,5,5,.72) 0%,transparent 22%,transparent 58%,rgba(5,5,5,.96) 100%)}
+    linear-gradient(90deg,rgba(5,5,5,.97) 0%,rgba(5,5,5,.90) 38%,rgba(5,5,5,.52) 66%,rgba(5,5,5,.66) 100%),
+    linear-gradient(180deg,rgba(5,5,5,.86) 0%,rgba(5,5,5,.30) 26%,rgba(5,5,5,.32) 56%,rgba(5,5,5,.98) 100%)}
+.heroMedia video{filter:contrast(1.12) saturate(.9) brightness(.82)}
+.heroin h1,.heroin .lead{text-shadow:0 2px 22px rgba(0,0,0,.85)}
 .heroScan{position:absolute;left:0;right:0;height:1px;z-index:2;pointer-events:none;
   background:linear-gradient(90deg,transparent,rgba(227,25,55,.85),transparent);opacity:.55;
   animation:scan 6.5s cubic-bezier(.6,0,.4,1) infinite}
@@ -120,7 +125,12 @@ section{position:relative;padding:clamp(80px,10vw,150px) 0}
 .svc .glow{position:absolute;top:-40%;right:-30%;width:230px;height:230px;border-radius:50%;
   background:radial-gradient(circle,rgba(227,25,55,.20),transparent 68%);opacity:0;transition:.5s}
 .svc:hover .glow{opacity:1}
-.svc .ic{width:44px;height:44px;border:1px solid rgba(192,192,192,.22);border-radius:3px;display:grid;place-items:center;color:var(--red);font-size:19px}
+.svc .thumb{position:relative;margin:-34px -30px 20px;height:150px;overflow:hidden;border-bottom:1px solid var(--line)}
+.svc .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.28) contrast(1.08);
+  transition:transform 1s cubic-bezier(.2,.7,.3,1),filter .5s}
+.svc:hover .thumb img{transform:scale(1.07);filter:grayscale(0) contrast(1.1)}
+.svc .thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.05),rgba(5,5,5,.72))}
+.svc.feat .thumb{height:210px}
 .svc p{font-weight:400;color:var(--steel);font-size:13.6px;line-height:1.62;flex:1}
 .svc .go{font-size:10.6px;letter-spacing:2.2px;text-transform:uppercase;color:var(--chrome);font-weight:700}
 .svc:hover .go{color:var(--red)}
@@ -276,36 +286,7 @@ footer li a:hover{color:var(--red)}
   </div></div>
   <div class="wrap nav">
     <a href="#home" class="brand" aria-label="RoadSide Motors">
-      <svg viewBox="0 0 300 62" role="img" aria-label="RoadSide Motors">
-        <defs>
-          <linearGradient id="chromeG" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#FFFFFF"/><stop offset=".38" stop-color="#C0C0C0"/>
-            <stop offset=".54" stop-color="#6E6E6E"/><stop offset=".70" stop-color="#E8E8E8"/>
-            <stop offset="1" stop-color="#8A8A8A"/>
-          </linearGradient>
-          <linearGradient id="redG" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#FF2D55"/><stop offset=".5" stop-color="#E31937"/>
-            <stop offset=".64" stop-color="#8A1020"/><stop offset="1" stop-color="#E31937"/>
-          </linearGradient>
-        </defs>
-        <text x="0" y="42" font-family="Noto Sans Display, Arial" font-size="46" font-style="italic"
-              font-weight="900" letter-spacing="-1.4" fill="url(#chromeG)">Road</text>
-        <text x="119" y="42" font-family="Noto Sans Display, Arial" font-size="46" font-style="italic"
-              font-weight="900" letter-spacing="-1.4" fill="url(#redG)">S</text>
-        <text x="153" y="42" font-family="Noto Sans Display, Arial" font-size="46" font-style="italic"
-              font-weight="900" letter-spacing="-1.4" fill="url(#chromeG)">ide</text>
-        <g transform="translate(104.5,12)">
-          <circle cx="13" cy="13" r="12.6" fill="#0A0A0A" stroke="url(#chromeG)" stroke-width="2"/>
-          <circle cx="13" cy="13" r="4.1" fill="url(#redG)"/>
-          <g stroke="#C0C0C0" stroke-width="1.5" stroke-linecap="round">
-            <line x1="13" y1="13" x2="13" y2="3.4"/><line x1="13" y1="13" x2="21.3" y2="8.2"/>
-            <line x1="13" y1="13" x2="21.3" y2="17.8"/><line x1="13" y1="13" x2="13" y2="22.6"/>
-            <line x1="13" y1="13" x2="4.7" y2="17.8"/><line x1="13" y1="13" x2="4.7" y2="8.2"/>
-          </g>
-        </g>
-        <text x="119" y="58" font-family="Noto Sans Display, Arial" font-size="8.6" font-weight="600"
-              letter-spacing="2.4" fill="#A0A0A0">MOTORS</text>
-      </svg>
+      <img src="assets/brand/logo-mark.webp" alt="RoadSide Motors" class="brandmark">
     </a>
     <nav class="menu">
       <a href="#services">Services</a>
@@ -343,8 +324,8 @@ footer li a:hover{color:var(--red)}
     <div class="wrap heroin">
       <div class="eyebrow">Automotive Management &amp; Transport</div>
       <h1>
-        <span class="chrome">Vehicle transport.</span><br>
-        <span class="chrome">Done </span><span class="redchrome">properly.</span>
+        <span class="chrome">Automotive management,</span><br>
+        <span class="redchrome">not just transport.</span>
       </h1>
       <p class="lead">Drivable or not. Accident damage, engine or gearbox failure, no TÜV, locked wheels, won't start — we collect it and deliver it. Nationwide and across Europe, with one partner handling everything.</p>
       <div class="herocta">
@@ -371,24 +352,24 @@ footer li a:hover{color:var(--red)}
     <div class="svcs">
       <article class="svc feat reveal">
         <div class="glow"></div><div class="badge">Main Service</div>
-        <div class="ic">🚚</div>
+        <div class="thumb"><img src="assets/transport_loading.jpg" alt="Vehicle transport" loading="lazy"></div>
         <h3>Vehicle Transport</h3>
         <p>Drivable or non-drivable, accident vehicles, engine and gearbox damage, vehicles without TÜV. Pick-up and delivery nationwide and across Europe — including vehicles that don't roll or steer. Send us the details and photos and we come back with a price the same day.</p>
         <a href="#transport" class="go">See how it works →</a>
       </article>
-      <article class="svc reveal"><div class="glow"></div><div class="ic">🛻</div><h3>Trailer Rental</h3>
+      <article class="svc reveal"><div class="glow"></div><div class="thumb"><img src="assets/trailer_hitch.jpg" alt="Trailer rental" loading="lazy"></div><h3>Trailer Rental</h3>
         <p>Trailers with loading ramps, straps, lighting and tyre check included. Available by the hour, day, week, or on a monthly subscription.</p><a href="#contact" class="go">Check availability →</a></article>
-      <article class="svc reveal"><div class="glow"></div><div class="ic">🚗</div><h3>We Buy Your Car</h3>
+      <article class="svc reveal"><div class="glow"></div><div class="thumb"><img src="assets/ankauf_yard.jpg" alt="We buy your car" loading="lazy"></div><h3>We Buy Your Car</h3>
         <p>We buy the vehicles other buyers turn away — accident, hail, engine and gearbox damage, no TÜV, high mileage, export.</p><a href="#buy" class="go">Offer your vehicle →</a></article>
-      <article class="svc reveal"><div class="glow"></div><div class="ic">🔎</div><h3>Wanted Vehicle</h3>
+      <article class="svc reveal"><div class="glow"></div><div class="thumb"><img src="assets/wishcar_reveal.jpg" alt="Wanted vehicle" loading="lazy"></div><h3>Wanted Vehicle</h3>
         <p>Looking for a specific make, model, engine or equipment level? Tell us the specification and we'll source it — for private and export customers.</p><a href="#contact" class="go">Start a search →</a></article>
-      <article class="svc reveal"><div class="glow"></div><div class="ic">🔧</div><h3>Accident &amp; Body Repair</h3>
+      <article class="svc reveal"><div class="glow"></div><div class="thumb"><img src="assets/repair_booth.jpg" alt="Accident and body repair" loading="lazy"></div><h3>Accident &amp; Body Repair</h3>
         <p>Accident repair, bodywork, painting, hail damage. Carried out by our specialist partners — we coordinate and keep one point of contact.</p><a href="#contact" class="go">Report damage →</a></article>
-      <article class="svc reveal"><div class="glow"></div><div class="ic">🛞</div><h3>Alloy Wheel Repair</h3>
+      <article class="svc reveal"><div class="glow"></div><div class="thumb"><img src="assets/rim_damaged.jpg" alt="Alloy wheel repair" loading="lazy"></div><h3>Alloy Wheel Repair</h3>
         <p>Kerb damage, scratches, paint damage and refurbishment. Send photos of the damage and we'll get the partner quote for you.</p><a href="#contact" class="go">Request a repair →</a></article>
-      <article class="svc reveal"><div class="glow"></div><div class="ic">⚙️</div><h3>Parts, Tyres &amp; Camper Parts</h3>
+      <article class="svc reveal"><div class="glow"></div><div class="thumb"><img src="assets/parts_tyre.jpg" alt="Parts, tyres and camper parts" loading="lazy"></div><h3>Parts, Tyres &amp; Camper Parts</h3>
         <p>Not a shop — a request. We source car parts, tyres and motorhome parts on demand and come back with availability and price.</p><a href="#contact" class="go">Request a part →</a></article>
-      <article class="svc reveal"><div class="glow"></div><div class="ic">🏕️</div><h3>Mobile Camper Repair</h3>
+      <article class="svc reveal"><div class="glow"></div><div class="thumb"><img src="assets/camper_service.jpg" alt="Mobile camper repair" loading="lazy"></div><h3>Mobile Camper Repair</h3>
         <p>We come to you: electrics, batteries, water pumps, heating, fridges, lighting and fault diagnosis — wherever your camper is parked.</p><a href="#contact" class="go">Book a visit →</a></article>
     </div>
   </div>
@@ -567,7 +548,7 @@ footer li a:hover{color:var(--red)}
   <div class="wrap">
     <div class="shead reveal">
       <div class="eyebrow">About RoadSide Motors</div>
-      <h2><span class="chrome">Automotive management,</span> <span class="redchrome">not just transport</span></h2>
+      <h2><span class="chrome">One partner for the</span> <span class="redchrome">whole journey</span></h2>
       <p class="lead">RoadSide Motors is a transport and automotive services company based in the Karlsruhe area. Our main work is moving vehicles — including the ones nobody else wants to move. Around that, we handle vehicle purchasing, sourcing, repairs through vetted partners, parts and mobile camper service. One contact instead of five.</p>
     </div>
     <div class="stats">
@@ -600,7 +581,7 @@ footer li a:hover{color:var(--red)}
   <div class="wrap cgrid">
     <div class="reveal">
       <div class="eyebrow">Contact</div>
-      <h2><span class="chrome">Tell us what</span><br><span class="redchrome">needs moving</span></h2>
+      <h2><span class="chrome">Request a transport</span><br><span class="redchrome">or an offer</span></h2>
       <p class="lead" style="margin-top:20px">We usually reply within a few hours. For emergencies, call us — we answer 24/7.</p>
       <div class="cinfo">
         <a href="tel:+490000000000"><span class="k">☎</span>+49 (0) 000 000 000</a>
@@ -639,7 +620,7 @@ footer li a:hover{color:var(--red)}
     <div class="fg">
       <div>
         <a href="#home" class="brand" style="margin-bottom:18px">
-          <svg viewBox="0 0 300 62" style="height:32px"><use href="#logoFull"></use></svg>
+          <img src="assets/brand/logo-tagline.webp" alt="RoadSide Motors — Automotive Management &amp; Transport" class="brandfoot">
         </a>
         <p class="lead" style="max-width:340px;font-weight:400">Automotive Management &amp; Transport. Vehicle transport, trailer rental, vehicle purchase and automotive services — nationwide.</p>
       </div>
